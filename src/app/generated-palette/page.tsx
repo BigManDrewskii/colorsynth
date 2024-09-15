@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import GeneratedPaletteClient from './GeneratedPaletteClient'
 
 export default function GeneratedPalettePage() {
-  return <GeneratedPaletteClient />
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <GeneratedPaletteClient />
+    </Suspense>
+  )
 }
