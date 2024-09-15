@@ -9,8 +9,6 @@ import { Wand2 } from "lucide-react"
 import namer from 'color-namer'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { ArrowLeft } from "lucide-react"
 import React from 'react';
 import { ChromePicker } from 'react-color';
 
@@ -24,7 +22,7 @@ const ColorPicker = () => {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  const handleColorChange = (newColor: { hex: any }) => {
+  const handleColorChange = (newColor: { hex: string }) => {
     const newColorValue = newColor.hex.toUpperCase();
     setColor(newColorValue);
     

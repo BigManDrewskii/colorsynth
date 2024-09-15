@@ -89,7 +89,7 @@ export default function GeneratedPalette() {
 
   useEffect(() => {
     setHarmonyColors(generateHarmonyColors(baseColor, harmony))
-  }, [harmony, baseColor])
+  }, [baseColor, harmony, generateHarmonyColors])
 
   const handleCopyColor = (color: string) => {
     navigator.clipboard.writeText(color)
