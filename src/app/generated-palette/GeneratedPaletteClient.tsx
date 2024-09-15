@@ -15,37 +15,47 @@ import { motion } from 'framer-motion'
 type ColorHarmony = 'analogous' | 'complementary' | 'triadic' | 'tetradic'
 
 function generateInitialPalette(baseColor: string): string[] {
-  const color = chroma(baseColor)
-  return [
-    color.darken(2).hex(),
-    color.darken(1).hex(),
-    baseColor,
-    color.brighten(1).hex(),
-    color.brighten(2).hex(),
-  ]
+  try {
+    const color = chroma(baseColor)
+    return [
+      color.darken(2).hex(),
+      color.darken(1).hex(),
+      baseColor,
+      color.brighten(1).hex(),
+      color.brighten(2).hex(),
+    ]
+  } catch (error) {
+    console.error('Error generating initial palette:', error)
+    return ['#000000', '#333333', '#666666', '#999999', '#CCCCCC']
+  }
 }
 
 function generateHarmonyColors(baseColor: string, harmony: ColorHarmony): string[] {
-  const color = chroma(baseColor)
-  switch (harmony) {
-    case 'analogous':
-      return [
-        color.set('hsl.h', '-30').hex(),
-        color.set('hsl.h', '+30').hex(),
-      ]
-    case 'complementary':
-      return [color.set('hsl.h', '+180').hex()]
-    case 'triadic':
-      return [
-        color.set('hsl.h', '+120').hex(),
-        color.set('hsl.h', '+240').hex(),
-      ]
-    case 'tetradic':
-      return [
-        color.set('hsl.h', '+90').hex(),
-        color.set('hsl.h', '+180').hex(),
-        color.set('hsl.h', '+270').hex(),
-      ]
+  try {
+    const color = chroma(baseColor)
+    switch (harmony) {
+      case 'analogous':
+        return [
+          color.set('hsl.h', '-30').hex(),
+          color.set('hsl.h', '+30').hex(),
+        ]
+      case 'complementary':
+        return [color.set('hsl.h', '+180').hex()]
+      case 'triadic':
+        return [
+          color.set('hsl.h', '+120').hex(),
+          color.set('hsl.h', '+240').hex(),
+        ]
+      case 'tetradic':
+        return [
+          color.set('hsl.h', '+90').hex(),
+          color.set('hsl.h', '+180').hex(),
+          color.set('hsl.h', '+270').hex(),
+        ]
+    }
+  } catch (error) {
+    console.error('Error generating harmony colors:', error)
+    return ['#FF0000', '#00FF00', '#0000FF']
   }
 }
 
@@ -84,7 +94,15 @@ export default function GeneratedPaletteClient() {
   useEffect(() => {
     const color = searchParams.get('color')
     if (color) {
-      setBaseColor(`#${color}`)
+      // Ensure the color starts with '#' and is a valid hex
+      const validHex = color.startsWith('#') ? color : `#${color}`
+      if (/^#[0-9A-F]{6}$/i.test(validHex)) {
+        setBaseColor(validHex)
+      } else {
+        console.error('Invalid hex color:', color)
+        // Set a default color or handle the error as needed
+        setBaseColor('#3498DB')
+      }
     }
   }, [searchParams])
 
@@ -296,14 +314,20 @@ export default function GeneratedPaletteClient() {
           </CardContent>
         </Card>
 
-        <div className="flex items-center justify-center gap-5 mt-5">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-5">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-[#4E4E4E] border-2 border-[#4E4E4E] overflow-hidden">
-              <Image src="/avatar.png" alt="Creator" width={48} height={48} className="w-full h-full object-cover" />
+            <div className="w-12 h-12 rounded-full bg-[#4E4E4E] border-2 border-[#4E4E4E] overflow-hidden flex-shrink-0">
+              <Image 
+                src="/images/avatar.png" 
+                alt="Creator" 
+                width={48} 
+                height={48} 
+                className="w-full h-full object-cover"
+              />
             </div>
             <span className="text-white text-base">Created by Drewskii</span>
           </div>
-          <a href="https://x.com/drewskii_xyz" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/drewskii_xyz" target="_blank" rel="noopener noreferrer" className="mt-3 sm:mt-0">
             <Button className="bg-[#6366F1] hover:bg-[#6366F1]/90 font-bold text-white transition-all duration-300 ease-in-out flex items-center">
               <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current mr-2">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
