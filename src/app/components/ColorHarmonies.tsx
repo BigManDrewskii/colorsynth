@@ -1,24 +1,26 @@
 import { ChevronDown } from "lucide-react"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-// ... other imports
+
+interface ColorHarmoniesProps {
+  harmonies: {
+    name: string;
+    colors: string[];
+  }[];
+}
 
 export function ColorHarmonies({ harmonies }: ColorHarmoniesProps) {
   return (
-    <div className="space-y-4">
+    <div>
       {harmonies.map((harmony, index) => (
         <Collapsible key={index}>
-          <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg border p-4">
-            <div className="flex items-center space-x-2">
-              <div
-                className="h-4 w-4 rounded-full"
-                style={{ backgroundColor: harmony.baseColor }}
-              />
-              <span className="font-medium">{harmony.name}</span>
-            </div>
-            <ChevronDown className="h-4 w-4" />
+          <CollapsibleTrigger className="flex items-center">
+            <ChevronDown className="mr-2" />
+            {harmony.name}
           </CollapsibleTrigger>
-          <CollapsibleContent className="space-y-2 px-4 pb-2 pt-0">
-            {/* ... rest of the component remains unchanged ... */}
+          <CollapsibleContent>
+            {harmony.colors.map((color, colorIndex) => (
+              <div key={colorIndex} style={{backgroundColor: color}} className="w-10 h-10"></div>
+            ))}
           </CollapsibleContent>
         </Collapsible>
       ))}
