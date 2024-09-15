@@ -48,7 +48,7 @@ const ColorPicker = () => {
     <main className="min-h-screen w-full bg-[#121212] py-20 px-4 flex flex-col items-center justify-start relative">
       <div className="w-full max-w-[840px] flex flex-col items-center gap-8 relative z-10">
         {/* Logo and header section */}
-        <div className="flex flex-col items-center gap-6 relative w-full mb-8">
+        <div className="flex flex-col items-center gap-6 relative w-full mb-8 animate-fade-in">
           <motion.div 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -75,7 +75,7 @@ const ColorPicker = () => {
           </p>
         </div>
 
-        <Card className="w-full bg-[#1E1E1E] border-[#333333] shadow-xl transition-all duration-300 ease-in-out relative z-10">
+        <Card className="w-full bg-[#1E1E1E] border-[#333333] shadow-xl transition-all duration-300 ease-in-out relative z-10 animate-slide-up">
           <CardContent className="p-8 flex flex-col items-center gap-10">
             <div className="text-center">
               <h2 className="text-[#F2F7F2] text-2xl font-bold mb-2">Enter Hex Color Code</h2>
@@ -119,7 +119,7 @@ const ColorPicker = () => {
             </div>
 
             <Button 
-              className="w-full h-14 bg-[#6366F1] hover:bg-[#5457E5] text-[#F2F7F2] text-xl font-bold transition-all duration-300 ease-in-out z-20"
+              className="w-full h-14 bg-[#6366F1] hover:bg-[#5457E5] text-[#F2F7F2] text-xl font-bold transition-all duration-300 ease-in-out z-20 animate-pulse-fade"
               onClick={handleGeneratePalette}
               disabled={!isValidHex(color)}
             >
@@ -148,7 +148,6 @@ const ColorPicker = () => {
           </a>
         </div>
       </div>
-      <div className="w-[600px] h-[600px] rounded-full bg-[#6366F1] opacity-10 blur-[200px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-0"></div>
     </main>
   )
 }

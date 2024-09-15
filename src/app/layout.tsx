@@ -1,14 +1,12 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/components/ui/toaster"
-import "./globals.css"
+import './globals.css'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "ColorSynth",
-  description: "Generate beautiful color palettes",
+  title: 'ColorSynth',
+  description: 'Create harmonious color schemes from a single base color.',
 }
 
 export default function RootLayout({
@@ -17,16 +15,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
+    <html lang="en">
+      <body className={`${inter.className} relative min-h-screen overflow-x-hidden`}>
+        <div className="relative z-10">
           {children}
-          <Toaster />
-        </ThemeProvider>
+        </div>
+        <div className="fixed inset-0 pointer-events-none overflow-hidden">
+          <div className="w-[800px] h-[800px] rounded-full bg-[#6366F1] opacity-10 blur-[200px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 animate-pulse"></div>
+        </div>
       </body>
     </html>
   )

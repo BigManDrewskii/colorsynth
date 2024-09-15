@@ -210,7 +210,7 @@ export default function GeneratedPaletteClient() {
     <main className="min-h-screen bg-[#121212] text-zinc-50 p-6 sm:p-10 relative">
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Logo and header section */}
-        <div className="flex flex-col items-center gap-6 relative w-full mb-10">
+        <div className="flex flex-col items-center gap-6 relative w-full mb-10 animate-fade-in">
           <motion.div 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -249,7 +249,7 @@ export default function GeneratedPaletteClient() {
         </div>
 
         {/* Generated Palette */}
-        <Card className="w-full bg-[#1E1E1E] border-[#333333] shadow-xl transition-all duration-300 ease-in-out relative z-10 mb-10">
+        <Card className="w-full bg-[#1E1E1E] border-[#333333] shadow-xl transition-all duration-300 ease-in-out relative z-10 mb-10 animate-slide-up">
           <CardContent className="p-8 flex flex-col items-center gap-8">
             <div className="text-center">
               <h2 className="text-[#F2F7F2] text-3xl font-bold mb-3">Generated Palette</h2>
@@ -291,7 +291,7 @@ export default function GeneratedPaletteClient() {
         </Card>
 
         {/* Explore Harmonies */}
-        <Card className="w-full bg-[#1E1E1E] border-[#333333] shadow-xl transition-all duration-300 ease-in-out relative z-10">
+        <Card className="w-full bg-[#1E1E1E] border-[#333333] shadow-xl transition-all duration-300 ease-in-out relative z-10 animate-slide-up delay-150">
           <CardContent className="p-8 flex flex-col items-center gap-8">
             <h2 className="text-[#F2F7F2] text-3xl font-bold">Explore Harmonies</h2>
             <p className="text-[#A5A8A5] text-lg text-center">
@@ -302,7 +302,7 @@ export default function GeneratedPaletteClient() {
                 <SelectTrigger className="w-full bg-[#252525] text-[#F2F7F2] border border-[#444444] rounded-md p-3 text-lg transition-all duration-300 ease-in-out">
                   <SelectValue placeholder="Select harmony" />
                 </SelectTrigger>
-                <SelectContent className="bg-[#252525] border-[#444444]">
+                <SelectContent className="text-white bg-[#252525] border-[#444444]">
                   <SelectItem value="analogous">Analogous</SelectItem>
                   <SelectItem value="complementary">Complementary</SelectItem>
                   <SelectItem value="triadic">Triadic</SelectItem>
@@ -336,7 +336,7 @@ export default function GeneratedPaletteClient() {
           </a>
         </div>
       </div>
-      <div className="w-[800px] h-[800px] rounded-full bg-[#6366F1] opacity-10 blur-[200px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"></div>
+      <div className="w-[800px] h-[auto] rounded-full bg-[#6366F1] opacity-10 blur-[200px] absolute bottom-40 left-1/2 transform -translate-x-1/2 translate-y-1/2 animate-pulse"></div>
     </main>
   )
 }
