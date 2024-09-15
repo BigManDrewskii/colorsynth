@@ -314,7 +314,7 @@ export default function GeneratedPaletteClient() {
           </CardContent>
         </Card>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-5 relative z-20">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-5">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-[#4E4E4E] border-2 border-[#4E4E4E] overflow-hidden flex-shrink-0">
               <Image 
@@ -328,16 +328,13 @@ export default function GeneratedPaletteClient() {
             <span className="text-white text-base">Created by Drewskii</span>
           </div>
           <a href="https://x.com/drewskii_xyz" target="_blank" rel="noopener noreferrer" className="mt-3 sm:mt-0">
-            <Button className="bg-[#6366F1] hover:bg-[#6366F1]/90 font-bold text-white transition-all duration-300 ease-in-out flex items-center relative z-30">
-              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current mr-2">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-              </svg>
-              Connect on X
+            <Button className="bg-[#6366F1] hover:bg-[#4F46E5] text-white">
+              Follow @drewskii_xyz
             </Button>
           </a>
         </div>
       </div>
-      <div className="w-[424px] h-[424px] rounded-full bg-[#6366F1] opacity-20 blur-[600px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-0"></div>
+      <div className="w-[424px] h-[424px] rounded-full bg-[#6366F1] opacity-20 blur-[600px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"></div>
     </main>
   )
 }
