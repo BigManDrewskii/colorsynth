@@ -318,8 +318,8 @@ export default function GeneratedPaletteClient() {
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-[#4E4E4E] border-2 border-[#4E4E4E] overflow-hidden flex-shrink-0">
               <Image 
-                src="src/public/images" 
-                alt="Creator" 
+                src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3I5aGp2ZzY1OGE1cTYxOHg0d2hncHBsbHRkeTR1dHhtdHpsMXNuMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohzdZO0nAL1H2LdMA/giphy.webp"
+                alt="Color Wheel Animation" 
                 width={48} 
                 height={48} 
                 className="w-full h-full object-cover"
@@ -328,11 +328,8 @@ export default function GeneratedPaletteClient() {
             <span className="text-white text-base">Created by Drewskii</span>
           </div>
           <a href="https://x.com/drewskii_xyz" target="_blank" rel="noopener noreferrer" className="mt-3 sm:mt-0">
-            <Button className="bg-[#6366F1] hover:bg-[#6366F1]/90 font-bold text-white transition-all duration-300 ease-in-out flex items-center">
-              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current mr-2">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-              </svg>
-              Connect on X
+            <Button className="bg-[#6366F1] hover:bg-[#4F46E5] text-white">
+              Follow @drewskii_xyz
             </Button>
           </a>
         </div>
