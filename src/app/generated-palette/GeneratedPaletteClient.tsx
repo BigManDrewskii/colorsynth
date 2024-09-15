@@ -11,6 +11,7 @@ import { Wand2, Download, ArrowLeft, CheckCircle2 } from "lucide-react"
 import namer from 'color-namer'
 import chroma from 'chroma-js'
 import { motion } from 'framer-motion'
+import { ChromePicker } from 'react-color'
 
 type ColorHarmony = 'analogous' | 'complementary' | 'triadic' | 'tetradic'
 
@@ -90,6 +91,7 @@ export default function GeneratedPaletteClient() {
   const [palette, setPalette] = useState<string[]>([])
   const [harmonyColors, setHarmonyColors] = useState<string[]>([])
   const [copiedColor, setCopiedColor] = useState<string | null>(null)
+  const [showColorPicker, setShowColorPicker] = useState(false)
 
   useEffect(() => {
     const color = searchParams.get('color')
@@ -205,8 +207,8 @@ export default function GeneratedPaletteClient() {
   )
 
   return (
-    <main className="min-h-screen w-full bg-[#18181B] bg-gradient-to-b from-[#18181B] to-[#18181B] py-20 px-4 flex flex-col items-center justify-start relative">
-      <div className="w-full max-w-[840px] flex flex-col items-center gap-6 relative z-10">
+    <main className="min-h-screen bg-zinc-900 text-zinc-50 p-4 sm:p-8 relative">
+      <div className="max-w-3xl mx-auto relative z-10">
         {/* Logo and header section */}
         <div className="flex flex-col items-center gap-4 relative w-full mb-6">
           <motion.div 

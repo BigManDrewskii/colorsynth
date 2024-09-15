@@ -21,6 +21,7 @@ const ColorPicker = () => {
   const [colorName, setColorName] = useState('Curious Blue');
   const [error, setError] = useState('');
   const router = useRouter();
+  const [showColorPicker, setShowColorPicker] = useState(false)
 
   const handleColorChange = (newColor: { hex: string }) => {
     const newColorValue = newColor.hex.toUpperCase();
@@ -44,8 +45,8 @@ const ColorPicker = () => {
   };
 
   return (
-    <main className="min-h-screen w-full bg-[#18181B] bg-gradient-to-b from-[#18181B] to-[#18181B] py-20 px-4 flex flex-col items-center justify-start">
-      <div className="w-full max-w-[840px] flex flex-col items-center gap-6">
+    <main className="min-h-screen w-full bg-[#18181B] bg-gradient-to-b from-[#18181B] to-[#18181B] py-20 px-4 flex flex-col items-center justify-start relative">
+      <div className="w-full max-w-[840px] flex flex-col items-center gap-6 relative z-10">
         {/* Logo and header section */}
         <div className="flex flex-col items-center gap-4 relative w-full mb-6">
           <motion.div 
@@ -74,7 +75,7 @@ const ColorPicker = () => {
           </p>
         </div>
 
-        <Card className="w-full bg-[#1B1B1B] border-[#3C3C3C] shadow-lg transition-all duration-300 ease-in-out">
+        <Card className="w-full bg-[#1B1B1B] border-[#3C3C3C] shadow-lg transition-all duration-300 ease-in-out relative z-10">
           <CardContent className="p-6 flex flex-col items-center gap-8">
             <div className="text-center">
               <h2 className="text-[#F2F7F2] text-xl font-bold mb-1.5">Enter Hex Color Code</h2>
@@ -92,26 +93,18 @@ const ColorPicker = () => {
                   className="w-full h-10 bg-[#F2F7F2] text-[#A5A8A5] text-lg border-[#4E4E4E] border-r- transition-all duration-300 ease-in-out"
                 />
                 <div className="relative w-24 h-10 group">
-                  <Input
-                    type="color"
-                    value={color}
-                    onChange={(e) => handleColorChange({ hex: e.target.value.toUpperCase() })}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                  />
-                  <div 
+                  <button
+                    onClick={() => setShowColorPicker(!showColorPicker)}
                     className="w-full h-10 rounded-md border-2 border-[#4E4E4E] shadow-md overflow-hidden transition-all duration-200 ease-in-out group-hover:scale-110"
                     style={{ backgroundColor: color }}
                   >
                     <div className="w-full h-full bg-gradient-to-br from-transparent to-black opacity-30"></div>
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 3V21M21 12H3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <div className="absolute top-full left-0 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <ChromePicker color={color} onChange={handleColorChange} />
-                  </div>
+                  </button>
+                  {showColorPicker && (
+                    <div className="absolute top-full left-0 mt-2 z-50">
+                      <ChromePicker color={color} onChange={handleColorChange} />
+                    </div>
+                  )}
                 </div>
               </div>
               <div 
@@ -126,7 +119,7 @@ const ColorPicker = () => {
             </div>
 
             <Button 
-              className="w-800 h-12 bg-[#6366F1] hover:bg-[#6366F1]/90 text-[#F2F7F2] text-lg font-bold transition-all duration-300 ease-in-out"
+              className="w-800 h-12 bg-[#6366F1] hover:bg-[#6366F1]/90 text-[#F2F7F2] text-lg font-bold transition-all duration-300 ease-in-out z-20"
               onClick={handleGeneratePalette}
               disabled={!isValidHex(color)}
             >
@@ -149,13 +142,13 @@ const ColorPicker = () => {
             <span className="text-white text-base">Created by Drewskii</span>
           </div>
           <a href="https://x.com/drewskii_xyz" target="_blank" rel="noopener noreferrer" className="mt-3 sm:mt-0">
-            <Button className="bg-[#6366F1] hover:bg-[#4F46E5] text-white">
+            <Button className="bg-[#6366F1] hover:bg-[#4F46E5] text-white z-30">
               Follow @drewskii_xyz
             </Button>
           </a>
         </div>
       </div>
-      <div className="w-[424px] h-[424px] rounded-full bg-[#6366F1] opacity-20 blur-[600px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"></div>
+      <div className="w-[424px] h-[424px] rounded-full bg-[#6366F1] opacity-20 blur-[600px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-0"></div>
     </main>
   )
 }
