@@ -1,14 +1,16 @@
 # ColorSynth
 
-ColorSynth is a web application for generating and exploring color palettes. It allows users to create custom color schemes, view color harmonies, and get accessibility information for chosen colors.
+ColorSynth is a powerful and intuitive color palette generator that helps designers and developers create harmonious color schemes from a single base color.
 
 ## Features
 
-- Generate color palettes based on a base color
-- Explore different color harmonies (analogous, complementary, triadic, tetradic)
-- View accessibility information for each color
+- Generate color palettes from a single hex color code
+- Explore different color harmonies (Analogous, Complementary, Triadic, Tetradic)
+- Adjust palette size
+- View color accessibility information
+- Copy color codes with a single click
 - Download palettes as PNG or SVG
-- Responsive design for various screen sizes
+- Randomize colors for inspiration
 
 ## Technologies Used
 
@@ -16,17 +18,26 @@ ColorSynth is a web application for generating and exploring color palettes. It 
 - React
 - TypeScript
 - Tailwind CSS
-- shadcn/ui components
-- chroma-js for color manipulation
-- Framer Motion for animations
+- Framer Motion
+- Radix UI
+- Chroma.js
+- Color Namer
 
-## Getting Started
+## Usage
 
-1. Clone the repository
-2. Install dependencies with `npm install`
-3. Run the development server with `npm run dev`
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+1. Enter a hex color code or use the color picker on the home page.
+2. Click "Generate Palette" to create a color scheme based on your input.
+3. Explore different harmonies and adjust the palette size as needed.
+4. Copy colors, download the palette, or start over with a new base color.
 
-## Deployment
+## Contributing
 
-This project is set up for easy deployment on Vercel.
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contact
+
+Created by [Drewskii](https://x.com/drewskii_xyz) - feel free to contact me!
