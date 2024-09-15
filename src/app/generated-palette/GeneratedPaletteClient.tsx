@@ -168,12 +168,12 @@ export default function GeneratedPaletteClient() {
   const renderColorSwatch = (color: string, index: number) => (
     <motion.div 
       key={index} 
-      className="bg-[#252525] p-5 rounded-md transition-all duration-300 ease-in-out hover:shadow-lg"
+      className="bg-[#1E1E1E] p-6 rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl"
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
     >
       <div 
-        className="h-24 rounded-md mb-3 cursor-pointer transition-all duration-300 ease-in-out relative"
+        className="h-28 rounded-md mb-4 cursor-pointer transition-all duration-300 ease-in-out relative"
         style={{ backgroundColor: color }}
         onClick={() => handleCopyColor(color)}
       >
@@ -184,14 +184,14 @@ export default function GeneratedPaletteClient() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <CheckCircle2 className="text-white" size={28} />
+            <CheckCircle2 className="text-white" size={32} />
           </motion.div>
         )}
       </div>
-      <p className="text-[#FAFAFA] font-bold text-base mb-1">{namer(color).ntc[0].name}</p>
-      <p className="text-[#A1A1AA] text-sm mb-3">{color}</p>
-      <div className="mt-3 p-2.5 bg-[#1B1B1B] rounded-md">
-        <h4 className="text-[#F2F7F2] font-semibold mb-2 text-sm">Accessibility</h4>
+      <p className="text-[#FAFAFA] font-bold text-lg mb-1">{namer(color).ntc[0].name}</p>
+      <p className="text-[#A1A1AA] text-md mb-4">{color}</p>
+      <div className="mt-4 p-3 bg-[#252525] rounded-md">
+        <h4 className="text-[#F2F7F2] font-semibold mb-3 text-md">Accessibility</h4>
         <AccessibilityIndicator 
           ratio={parseFloat(getContrastRatio(color, '#FFFFFF'))}
           level={getAccessibilityLevel(parseFloat(getContrastRatio(color, '#FFFFFF')))}
@@ -207,10 +207,10 @@ export default function GeneratedPaletteClient() {
   )
 
   return (
-    <main className="min-h-screen bg-zinc-900 text-zinc-50 p-4 sm:p-8 relative">
-      <div className="max-w-3xl mx-auto relative z-10">
+    <main className="min-h-screen bg-[#121212] text-zinc-50 p-6 sm:p-10 relative">
+      <div className="max-w-4xl mx-auto relative z-10">
         {/* Logo and header section */}
-        <div className="flex flex-col items-center gap-4 relative w-full mb-6">
+        <div className="flex flex-col items-center gap-6 relative w-full mb-10">
           <motion.div 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -249,40 +249,40 @@ export default function GeneratedPaletteClient() {
         </div>
 
         {/* Generated Palette */}
-        <Card className="w-full bg-[#1B1B1B] border-[#3C3C3C] shadow-lg transition-all duration-300 ease-in-out relative z-10">
-          <CardContent className="p-6 flex flex-col items-center gap-6">
+        <Card className="w-full bg-[#1E1E1E] border-[#333333] shadow-xl transition-all duration-300 ease-in-out relative z-10 mb-10">
+          <CardContent className="p-8 flex flex-col items-center gap-8">
             <div className="text-center">
-              <h2 className="text-[#F2F7F2] text-2xl font-bold mb-2">Generated Palette</h2>
-              <p className="text-[#A5A8A5] text-sm">
+              <h2 className="text-[#F2F7F2] text-3xl font-bold mb-3">Generated Palette</h2>
+              <p className="text-[#A5A8A5] text-lg">
                 Your harmonious color palette based on the input color.
               </p>
             </div>
 
-            <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
               {palette.map(renderColorSwatch)}
             </div>
 
-            <div className="flex flex-wrap justify-between w-full gap-4">
+            <div className="w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6">
               <Button 
-                className="bg-[#6366F1] hover:bg-[#6366F1]/90 text-white transition-all duration-300 ease-in-out" 
+                className="bg-[#6366F1] hover:bg-[#5457E5] text-white text-lg transition-all duration-300 ease-in-out px-6 py-3" 
                 onClick={handleRandomize}
               >
-                <Wand2 className="mr-2 h-4 w-4" />
+                <Wand2 className="mr-3 h-5 w-5" />
                 Randomize
               </Button>
-              <div className="flex gap-2">
+              <div className="w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6">
                 <Button 
-                  className="bg-[#6366F1] hover:bg-[#6366F1]/90 text-white transition-all duration-300 ease-in-out" 
+                  className="bg-[#6366F1] hover:bg-[#5457E5] w-full text-white text-lg transition-all duration-300 ease-in-ut px-6 py-3" 
                   onClick={() => handleDownload('png')}
                 >
-                  <Download className="mr-2 h-4 w-4" />
+                  <Download className="mr-3 h-5 w-5" />
                   Download PNG
                 </Button>
                 <Button 
-                  className="bg-[#6366F1] hover:bg-[#6366F1]/90 text-white transition-all duration-300 ease-in-out" 
+                  className="bg-[#6366F1] hover:bg-[#5457E5] w-full text-white text-lg transition-all duration-300 ease-in-out px-6 py-3" 
                   onClick={() => handleDownload('svg')}
                 >
-                  <Download className="mr-2 h-4 w-4" />
+                  <Download className="mr-3 h-5 w-5" />
                   Download SVG
                 </Button>
               </div>
@@ -291,18 +291,18 @@ export default function GeneratedPaletteClient() {
         </Card>
 
         {/* Explore Harmonies */}
-        <Card className="w-full bg-[#1B1B1B] border-[#3C3C3C] shadow-lg transition-all duration-300 ease-in-out relative z-10">
-          <CardContent className="p-6 flex flex-col items-center gap-6">
-            <h2 className="text-[#F2F7F2] text-2xl font-bold">Explore Harmonies</h2>
-            <p className="text-[#A5A8A5] text-sm text-center">
+        <Card className="w-full bg-[#1E1E1E] border-[#333333] shadow-xl transition-all duration-300 ease-in-out relative z-10">
+          <CardContent className="p-8 flex flex-col items-center gap-8">
+            <h2 className="text-[#F2F7F2] text-3xl font-bold">Explore Harmonies</h2>
+            <p className="text-[#A5A8A5] text-lg text-center">
               See how your selected color interacts with different color harmonies.
             </p>
-            <div className="w-full">
+            <div className="w-full max-w-md">
               <Select value={harmony} onValueChange={(value: ColorHarmony) => setHarmony(value)}>
-                <SelectTrigger className="w-full bg-[#252525] text-[#F2F7F2] border border-[#4E4E4E] rounded-md p-2 transition-all duration-300 ease-in-out">
+                <SelectTrigger className="w-full bg-[#252525] text-[#F2F7F2] border border-[#444444] rounded-md p-3 text-lg transition-all duration-300 ease-in-out">
                   <SelectValue placeholder="Select harmony" />
                 </SelectTrigger>
-                <SelectContent className="bg-[#252525] border-[#4E4E4E]">
+                <SelectContent className="bg-[#252525] border-[#444444]">
                   <SelectItem value="analogous">Analogous</SelectItem>
                   <SelectItem value="complementary">Complementary</SelectItem>
                   <SelectItem value="triadic">Triadic</SelectItem>
@@ -310,7 +310,7 @@ export default function GeneratedPaletteClient() {
                 </SelectContent>
               </Select>
             </div>
-            <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
               {harmonyColors.map(renderColorSwatch)}
             </div>
           </CardContent>
@@ -336,7 +336,7 @@ export default function GeneratedPaletteClient() {
           </a>
         </div>
       </div>
-      <div className="w-[424px] h-[424px] rounded-full bg-[#6366F1] opacity-20 blur-[600px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"></div>
+      <div className="w-[800px] h-[800px] rounded-full bg-[#6366F1] opacity-10 blur-[200px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"></div>
     </main>
   )
 }

@@ -45,10 +45,10 @@ const ColorPicker = () => {
   };
 
   return (
-    <main className="min-h-screen w-full bg-[#18181B] bg-gradient-to-b from-[#18181B] to-[#18181B] py-20 px-4 flex flex-col items-center justify-start relative">
-      <div className="w-full max-w-[840px] flex flex-col items-center gap-6 relative z-10">
+    <main className="min-h-screen w-full bg-[#121212] py-20 px-4 flex flex-col items-center justify-start relative">
+      <div className="w-full max-w-[840px] flex flex-col items-center gap-8 relative z-10">
         {/* Logo and header section */}
-        <div className="flex flex-col items-center gap-4 relative w-full mb-6">
+        <div className="flex flex-col items-center gap-6 relative w-full mb-8">
           <motion.div 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -75,56 +75,56 @@ const ColorPicker = () => {
           </p>
         </div>
 
-        <Card className="w-full bg-[#1B1B1B] border-[#3C3C3C] shadow-lg transition-all duration-300 ease-in-out relative z-10">
-          <CardContent className="p-6 flex flex-col items-center gap-8">
+        <Card className="w-full bg-[#1E1E1E] border-[#333333] shadow-xl transition-all duration-300 ease-in-out relative z-10">
+          <CardContent className="p-8 flex flex-col items-center gap-10">
             <div className="text-center">
-              <h2 className="text-[#F2F7F2] text-xl font-bold mb-1.5">Enter Hex Color Code</h2>
-              <p className="text-[#A5A8A5] text-md">
+              <h2 className="text-[#F2F7F2] text-2xl font-bold mb-2">Enter Hex Color Code</h2>
+              <p className="text-[#A5A8A5] text-lg">
                 Enter a valid HEX Color Code, for example #FF0000 for Red.
               </p>
             </div>
 
-            <div className="w-full p-5 border border-[#4E4E4E] rounded-md flex flex-col gap-4">
-              <div className="flex items-center gap-2 ">
+            <div className="w-full p-6 border border-[#333333] rounded-lg flex flex-col gap-6">
+              <div className="flex items-center gap-3">
                 <Input
                   type="text"
                   value={color}
                   onChange={(e) => handleColorChange({ hex: e.target.value.toUpperCase() })}
-                  className="w-full h-10 bg-[#F2F7F2] text-[#A5A8A5] text-lg border-[#4E4E4E] border-r- transition-all duration-300 ease-in-out"
+                  className="w-full h-12 bg-[#2A2A2A] text-[#F2F7F2] text-lg border-[#444444] transition-all duration-300 ease-in-out"
                 />
-                <div className="relative w-24 h-10 group">
+                <div className="relative w-28 h-12 group">
                   <button
                     onClick={() => setShowColorPicker(!showColorPicker)}
-                    className="w-full h-10 rounded-md border-2 border-[#4E4E4E] shadow-md overflow-hidden transition-all duration-200 ease-in-out group-hover:scale-110"
+                    className="w-full h-12 rounded-md border-2 border-[#444444] shadow-md overflow-hidden transition-all duration-200 ease-in-out group-hover:scale-105"
                     style={{ backgroundColor: color }}
                   >
                     <div className="w-full h-full bg-gradient-to-br from-transparent to-black opacity-30"></div>
                   </button>
                   {showColorPicker && (
-                    <div className="absolute top-full left-0 mt-2 z-50">
+                    <div className="absolute top-full right-0 mt-2 z-50">
                       <ChromePicker color={color} onChange={handleColorChange} />
                     </div>
                   )}
                 </div>
               </div>
               <div 
-                className="w-full h-24 rounded-md border-[#4E4E4E] bg-opacity-5 transition-all duration-300 ease-in-out"
+                className="w-full h-32 rounded-md border-[#444444] bg-opacity-5 transition-all duration-300 ease-in-out"
                 style={{ backgroundColor: isValidHex(color) ? color : '#F2F7F2' }}
               ></div>
-              <div className="flex justify-center items-center gap-2">
-                <span className="text-[#FAFAFA] text-md font-bold">{colorName || 'Invalid Color'}</span>
-                <span className="text-[#A1A1AA] text-md">{isValidHex(color) ? color : 'Invalid'}</span>
+              <div className="flex justify-center items-center gap-3">
+                <span className="text-[#FAFAFA] text-lg font-bold">{colorName || 'Invalid Color'}</span>
+                <span className="text-[#A1A1AA] text-lg">{isValidHex(color) ? color : 'Invalid'}</span>
               </div>
               {error && <p className="text-red-500 text-md text-center">{error}</p>}
             </div>
 
             <Button 
-              className="w-800 h-12 bg-[#6366F1] hover:bg-[#6366F1]/90 text-[#F2F7F2] text-lg font-bold transition-all duration-300 ease-in-out z-20"
+              className="w-full h-14 bg-[#6366F1] hover:bg-[#5457E5] text-[#F2F7F2] text-xl font-bold transition-all duration-300 ease-in-out z-20"
               onClick={handleGeneratePalette}
               disabled={!isValidHex(color)}
             >
               Generate Palette
-              <Wand2 className="ml-2 h-5 w-5" />
+              <Wand2 className="ml-3 h-6 w-6" />
             </Button>
           </CardContent>
         </Card>
@@ -148,7 +148,7 @@ const ColorPicker = () => {
           </a>
         </div>
       </div>
-      <div className="w-[424px] h-[424px] rounded-full bg-[#6366F1] opacity-20 blur-[600px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-0"></div>
+      <div className="w-[600px] h-[600px] rounded-full bg-[#6366F1] opacity-10 blur-[200px] absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-0"></div>
     </main>
   )
 }
